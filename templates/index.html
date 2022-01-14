@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Home</title>
+      <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="{% static '/css/all.min.css' %}">
+  <style>
+    body{
+      background-color:green;
+    }
+#one{
+  background-color:white;
+  width:400px;
+  height:390px;
+  margin-left:200px;
+  padding: auto;
+}
+#onee{
+  color:white;
+}
+#bd{
+  color:white;
+}
+#as{
+  color:white;
+}
+#im{
+  margin-top:93px;
+
+}
+      </style>
+</head>
+<body>
+  <div class="container">
+    <h3 id="as">Online Qrcode Service</h3>
+  <form action="/send/" method="post">
+    {% csrf_token %}
+    <div class="form-group "></div>
+    <input type="text" name="number" placeholder="Enter Data"  class="form-control"><br>
+    <input type="submit" Value="submit" class="btn btn-primary">
+    <a href="/" class="btn btn-danger">Refresh</a>
+  </div>
+
+    <span id="bd">{{msg}}</span>
+  </form>
+
+  <div id="one">
+    {% if data %}
+    <h3> Your Qrcode is</h3>
+    <img src=" {% static 'img/test.png' %}" alt="no image">
+    <a href="{% static 'img/test.png' %}"class="btn btn-danger" download="w3logo" id="im" >Download Image</a>
+    {% else %}
+    <h2>please Enter data</h2>
+    
+    {% endif %}
+  </div>
+</div>
+    
+ <script  src="{% static 'js/jquery.min.js' %}"></script>
+  
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/all.min.js' %}"></script>
+ 
+</body>
+</html> 
